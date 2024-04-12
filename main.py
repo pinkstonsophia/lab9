@@ -13,7 +13,15 @@ def encode(original_password):
         return encoded_password
 
 def decode(encoded_password):
-    pass
+    encoded_password_digit_list = []
+    og_password_string = ""
+    encoded_password_digit_list[:] = encoded_password
+    for digit in encoded_password_digit_list:
+        digit = int(digit)
+        digit -= 3
+        digit = str(digit)
+        og_password_string += digit
+    return og_password_string
 
 def display_menu():
     print("Menu")
@@ -25,9 +33,9 @@ def display_menu():
 
 
 if __name__ == "__main__":
-    while(True):
+    while True:
         display_menu()
-        option = int(input("Please enter an option:"))
+        option = int(input("Please enter an option: "))
         if option == 1:
             password = input("Please enter your password to encode: ")
             encoded_password = encode(password)
